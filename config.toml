@@ -1,4 +1,4 @@
-baseURL = "https://poui-de.github.io/coat-site/"
+baseURL = "https://poiu-de.github.io/coat-site/"
 title = "Coat — Config of Annotated Types"
 enableRobotsTXT = true
 # this example loads the theme as hugo module
