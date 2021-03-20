@@ -1,0 +1,4 @@
+baseURL = "http://poiu-de.github.io/coat-site"
+languageCode = "en-us"
+title = "Coat"
+theme = "compose"
