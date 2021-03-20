@@ -1,34 +1,60 @@
-+++
-title = "Compose"
-# define chart data here
-[data]
-  fileLink = "content/projects.csv" # path to where csv is stored
-  colors = ["#627c62", "#11819b", "#ef7f1a", "#4e1154"] # chart colors
-  columnTitles = ["Section", "Status", "Author"] # optional if no table will be displayed from dataset
-  baseChartOn = 3 # number of column the chart(s) and graph should be drawn from # can be overridden directly via shortcode parameter # it's therefore optional
-  title = "Projects"
-+++
+---
+title: "Coat — Config of Annotated Types"
+description: "Easy and typesafe config objects"
+---
+
+# Generate typesafe config classes
+
+Coat is an annotation processor to generate classes for reading
+configuration values into typesafe objects.
+
+## Short Usage
 
 {{< block "grid-2" >}}
 {{< column >}}
-# Compose your Docs with __Ease__.
 
-Compose is a lean theme for the `Hugo`, inspired by [forestry.io](https://forestry.io). 
+1. Define an interface representing your config object.
+```java
+import de.poiu.coat.annotation.Coat;
 
-We do a [Pull Request](https://github.com/onweru/compose/pulls) contributions workflow on **GitHub**. Also feel free to raise any issues or feature suggestions.
+@Coat.Config
+public interface MyConfig {
+  @Coat.Param(key = "appName")
+  public String appName();
 
-{{< tip "warning" >}}
-Note that the theme is built with simplicity in mind. [This way](/), if a suggestion complicates the usability of the theme, it may be declined. New users are always welcome!
-{{< /tip >}}
+  @Coat.Param(key = "listenPort")
+  public int listenPort();
 
-{{< tip >}}
-You can [generate graphs, charts](]("docs/compose/graphs-charts-tables/#show-a-pie-doughnut--bar-chart-at-once")) and tables from a csv, ~~or a json~~ dataset
-{{< /tip >}}
+  @Coat.Param(key = "desription")
+  public Optional<String> description();
+}
+```
 
-{{< button "docs/compose/" "Read the Docs" >}}{{< button "https://github.com/onweru/compose" "Download Theme" >}}
 {{< /column >}}
 
 {{< column >}}
-![diy](/images/scribble.jpg)
+2. Use the generated class.
+```java
+final MyConfig config= 
+  new ImmutableMyConfig(
+    new File("/path/to/config.properties"));
+
+final String appName    = config.appName();
+final int    listenPort = config.listenPort();
+config.description().ifPresent(
+  …
+);
+
+
+
+
+```
 {{< /column >}}
 {{< /block >}}
+
+
+## License
+
+Coat is licensed under the terms of the [Apache license 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+{{< button "docs/quick_start/" "Quick Start" >}}{{< button "docs/user_guide" "User Guide" >}}

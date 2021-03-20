@@ -1,5 +1,5 @@
 ---
-title: "Compose Docs"
+title: "User Guide"
 weight: 1
 ---
 
