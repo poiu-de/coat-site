@@ -38,7 +38,7 @@ public interface MyConfig {
   @Coat.Param(key = "appName")
   public String appName();
 
-  @Coat.Param(key = "listenPort")
+  @Coat.Param(key = "listenPort", defaultValue = '8080')
   public int listenPort();
 
   @Coat.Param(key = "desription")
