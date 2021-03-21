@@ -3,7 +3,14 @@
 <input type=checkbox class=color_choice id=mode title="Toggle Dark Mode"></div></li></ul></nav></header><div class="main wrap pt-4"><div class=content><h1 id=generate-typesafe-config-classes>Generate typesafe config classes</h1><p>Coat is an annotation processor to generate classes for reading
 configuration values into typesafe objects.</p><h2 id=short-usage>Short Usage</h2><section class=grid-3><div><ol><li>For the following <code>config.properties</code> file</li></ol><pre><code>appName     = My shiny app
 listenPort  = 5040
-description = This is just a test project
+description = Only a test project
+
+
+
+
+
+
+
 </code></pre></div><div><ol start=2><li>Define a corresponding interface</li></ol><div class=highlight><pre class=chroma><code class=language-java data-lang=java><span class=ln> 1</span><span class=kn>import</span> <span class=nn>de.poiu.coat.annotation.Coat</span><span class=o>;</span>
 <span class=ln> 2</span>
 <span class=ln> 3</span><span class=nd>@Coat.Config</span>
