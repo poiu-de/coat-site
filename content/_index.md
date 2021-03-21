@@ -10,10 +10,19 @@ configuration values into typesafe objects.
 
 ## Short Usage
 
-{{< block "grid-2" >}}
+{{< block "grid-3" >}}
+{{< column >}}
+1. For the following `config.properties` file
+```
+appName     = My shiny app
+listenPort  = 5040
+description = This is just a test project
+```
+{{< /column >}}
+
 {{< column >}}
 
-1. Define an interface representing your config object.
+2. Define a corresponding interface
 ```java
 import de.poiu.coat.annotation.Coat;
 
@@ -33,7 +42,7 @@ public interface MyConfig {
 {{< /column >}}
 
 {{< column >}}
-2. Use the generated class.
+3. Then use the generated class
 ```java
 final MyConfig config= 
   new ImmutableMyConfig(

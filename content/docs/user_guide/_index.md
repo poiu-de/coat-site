@@ -1,8 +1,9 @@
 ---
 title: "User Guide"
 weight: 1
+draft: true
 ---
 
-Welcome to the Compose theme user guide! This guide shows you how to get started creating technical documentation sites using Compose, including site customization and how to use Compose's blocks and templates.
+This guide describes all aspects of Coat, how it can be configured an used.
 
-{{< button "./install-theme/" "Get started now" >}}
+{{< button "./overview/" "Overview" >}}
