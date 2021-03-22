@@ -24,6 +24,14 @@ For each supported type a converter class exists in the package
 details about the expected format of the input string.
 <!-- FIXME: Link to API doc -->
 
+The following primitive types are also supported by default. But those are
+different in that they are directly supported without any Converter.
+
+* int
+* long
+* double
+* boolean
+
 ### Registering custom types
 
 Coat allows registering custom types to be used in the annotated interface.
@@ -45,6 +53,11 @@ custom converter for the `java.time.Duration` type and register it via
 ImmutableMyConfig.registerConverter(Duration.class, new MyDurationConverter());
 ```
 
+As support for primitive types is directly implemented and not via
+Converter it is currently not possible to override the parsing of primitve
+types with a custom converter. If different parsing of such types is
+necessary the corresponding object type must be used and a Converter for
+that type written (e. g. a Converter(Integer)).
 
 ### Currently unsupported types
 
@@ -54,3 +67,8 @@ undefined behaviour.
 
 Support for arrays and collection types is in the roadmap, but not
 implemented yet.
+
+Also at the moment the primitive types `short`, `float`, `char` and `byte`
+are not supported. Therefore the next "bigger" types must be used (e. g.
+`int` instead of `short`) or the corresponding class (e. g. `Short` instead
+of `short`).
